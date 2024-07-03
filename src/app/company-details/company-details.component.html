@@ -1,16 +1,18 @@
 <section class="main_section">
   <header class="header_section">
-    <h3 class="text-light">
-      Notatki dotyczące {{ selectedCompany.name }}
-    </h3>
-    <button
-      class="text-light"
-      data-toggle="modal"
-      data-target="#exampleModalCenter"
-      (click)="setFocus()"
-    >
-      Dodaj notatkę
-    </button>
+    <div class="btn_add_note">
+      <h3 class="text-light">
+        Notatki dotyczące {{ selectedCompany.name }}
+      </h3>
+      <button
+        class="text-light"
+        data-toggle="modal"
+        data-target="#exampleModalCenter"
+        (click)="setFocus()"
+      >
+        Dodaj notatkę
+      </button>
+    </div>
 
     <!-- Modal -->
     <div

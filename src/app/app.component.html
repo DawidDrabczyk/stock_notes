@@ -4,7 +4,7 @@
       <div class="col-12 header_container">
         <app-header />
       </div>
-      <ul class="col-3">
+      <ul class="col-6 col-md-4 col-lg-3">
         @for(company of companies; track company.id) {
         <li>
           <app-company
@@ -15,7 +15,7 @@
         </li>
         }
       </ul>
-      <div class="col-9">
+      <div class="col-6 col-md-8 col-lg-9">
         @if(!selectedCompany) {
         <div class="text-light">Wybierz firmę</div>
         } @else {
