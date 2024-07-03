@@ -1,27 +1,23 @@
-# Angular18App
+# Investor Notebook
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.6.
+Projekt elektronicznego notatnika dla inwestora
 
-## Development server
+## Konfiguracja
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Użytkownik ma możliwość tworzenia notatek dla poszczególnych firm które są skonfigurowane na sztywno w dedykowanym do tego pliku. Użytkownik od strony UI nie ma możliwości konfiguracji listy - jest ona konfigurowalna tylko z poziomu pliku companies.ts
 
-## Code scaffolding
+## Funkcjonalność
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Prosta aplikacja umożliwia tworzenie oraz usuwanie notatek dotyczących poszczególnych spólek giełdowych - ponadto dane zapisują się w local storage przez co są zachowywane nawet przy przeładowaniu okna lub ponownemu wejściu do aplikacji.
 
-## Build
+## Technologia
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+W projekcie zostały wykorzystane najnowsze funkcjonalności Angulara takie jak signals, new syntax, new input/output etc.
 
-## Running unit tests
+## Style
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Oprócz customowych styli w projekcie został zaimplementowany bootstrap w najnoszej wersji.
 
-## Running end-to-end tests
+## Deployment
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+https://investor-notebook.onrender.com/
