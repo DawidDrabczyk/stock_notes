@@ -16,4 +16,39 @@ export const COMPANIES: Array<Company> = [
     name: 'KGHM Polska Miedź',
     img: '../../assets/kghm.png',
   },
+  {
+    id: 4,
+    name: 'Dom maklerski XTB',
+    img: '../../assets/xtb.png',
+  },
+  {
+    id: 5,
+    name: 'GPW',
+    img: '../../assets/gpw.png',
+  },
+  {
+    id: 6,
+    name: 'DOM Development',
+    img: '../../assets/domdev.png',
+  },
+  {
+    id: 7,
+    name: 'PKO Bank Polski',
+    img: '../../assets/pko.jpg',
+  },
+  {
+    id: 8,
+    name: 'Asseco Poland',
+    img: '../../assets/asseco.png',
+  },
+  {
+    id: 9,
+    name: 'Introl',
+    img: '../../assets/introl.jpg',
+  },
+  {
+    id: 10,
+    name: 'Śnieżka',
+    img: '../../assets/sniezka.png',
+  },
 ];

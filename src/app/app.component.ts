@@ -24,7 +24,6 @@ export class AppComponent {
   public title: string = 'Notatki giełdowe';
 
   public getSelectedCompany(company: Company): void {
-    console.log(company);
     this.selectedCompany = company;
   }
 }

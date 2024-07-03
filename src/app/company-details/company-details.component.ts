@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild, signal } from '@angular/core';
 import { Company } from '../models/company.model';
 import { NoteComponent } from './note/note.component';
 import { Note } from '../models/note.model';
@@ -15,8 +15,8 @@ export class CompanyDetailsComponent {
   @Input({ required: true }) selectedCompany!: Company;
   @ViewChild('inputElement') inputElement!: any;
   public notes: Array<Note> = [];
-  public noteDescription!: string;
-  public noteHeader!: string;
+  public noteDescription = signal('');
+  public noteHeader = signal('');
 
   public get getNotesByCompany() {
     return this.notes.filter(
@@ -28,8 +28,7 @@ export class CompanyDetailsComponent {
     const newNote: Note = this.prepareSingleNote(this.notes.length);
 
     this.notes.unshift(newNote);
-    this.noteDescription = '';
-    this.noteHeader = '';
+    this.clearAll();
   }
 
   public setFocus(): void {
@@ -48,11 +47,16 @@ export class CompanyDetailsComponent {
     }
   }
 
+  public clearAll(): void {
+    this.noteDescription.set('');
+    this.noteHeader.set('');
+  }
+
   private prepareSingleNote(id: number): Note {
     return {
       id: id,
-      description: this.noteDescription,
-      header: this.noteHeader,
+      description: this.noteDescription(),
+      header: this.noteHeader(),
       time: new Date(),
       companyId: this.selectedCompany.id,
     };

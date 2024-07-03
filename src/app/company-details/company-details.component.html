@@ -1,7 +1,7 @@
 <section class="main_section">
   <header class="header_section">
     <h3 class="text-light">
-      Notatki dotyczące firmy {{ selectedCompany.name }}
+      Notatki dotyczące {{ selectedCompany.name }}
     </h3>
     <button
       class="text-light"
@@ -51,7 +51,7 @@
               type="button"
               class="btn btn-secondary"
               data-dismiss="modal"
-              (click)="noteDescription = ''; noteHeader = ''"
+              (click)="clearAll()"
             >
               Zamknij
             </button>
@@ -59,6 +59,7 @@
               type="button"
               class="btn btn-primary"
               data-dismiss="modal"
+              [disabled]="noteHeader() === '' || noteDescription() === ''"
               (click)="addNote()"
             >
               Zapisz
