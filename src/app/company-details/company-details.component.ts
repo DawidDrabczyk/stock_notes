@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, signal } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, signal } from '@angular/core';
 import { Company } from '../models/company.model';
 import { NoteComponent } from './note/note.component';
 import { Note } from '../models/note.model';
@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './company-details.component.scss',
   imports: [NoteComponent, FormsModule],
 })
-export class CompanyDetailsComponent {
+export class CompanyDetailsComponent implements OnInit {
   @Input({ required: true }) selectedCompany!: Company;
   @ViewChild('inputElement') inputElement!: any;
   public notes: Array<Note> = [];
@@ -24,10 +24,15 @@ export class CompanyDetailsComponent {
     );
   }
 
+  ngOnInit(): void {
+    this.setNotesArrayFromLS();
+  }
+
   public addNote(): void {
-    const newNote: Note = this.prepareSingleNote(this.notes.length);
+    const newNote: Note = this.prepareSingleNote(new Date().getTime());
 
     this.notes.unshift(newNote);
+    this.setNotesToLocalStorage();
     this.clearAll();
   }
 
@@ -44,6 +49,7 @@ export class CompanyDetailsComponent {
 
     if (indexToRemove !== -1) {
       this.notes.splice(indexToRemove, 1);
+      this.setNotesToLocalStorage();
     }
   }
 
@@ -60,5 +66,18 @@ export class CompanyDetailsComponent {
       time: new Date(),
       companyId: this.selectedCompany.id,
     };
+  }
+
+  private setNotesToLocalStorage(): void {
+    const notes = JSON.stringify(this.notes);
+    localStorage.setItem('notes', notes);
+  }
+
+  private setNotesArrayFromLS(): void {
+    const notes = localStorage.getItem('notes');
+
+    if (notes) {
+      this.notes = JSON.parse(notes);
+    }
   }
 }
