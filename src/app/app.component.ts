@@ -1,13 +1,30 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
+import { CompanyComponent } from './company/company.component';
+import { COMPANIES } from './companies';
+import { Company } from './models/company.model';
+import { CompanyDetailsComponent } from './company-details/company-details.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  imports: [
+    RouterOutlet,
+    HeaderComponent,
+    CompanyComponent,
+    CompanyDetailsComponent,
+  ],
 })
 export class AppComponent {
-  title = 'angular18_app';
+  public companies: Array<Company> = COMPANIES;
+  public selectedCompany!: Company;
+  public title: string = 'Notatki giełdowe';
+
+  public getSelectedCompany(company: Company): void {
+    console.log(company);
+    this.selectedCompany = company;
+  }
 }

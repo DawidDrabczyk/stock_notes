@@ -1,0 +1,83 @@
+<section class="main_section">
+  <header class="header_section">
+    <h3 class="text-light">
+      Notatki dotyczące firmy {{ selectedCompany.name }}
+    </h3>
+    <button
+      class="text-light"
+      data-toggle="modal"
+      data-target="#exampleModalCenter"
+      (click)="setFocus()"
+    >
+      Dodaj notatkę
+    </button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModalCenter"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Nowa notatka</h5>
+          </div>
+          <div class="modal-body">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend"></div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Temat notatki"
+                aria-describedby="inputGroup-sizing-default"
+                [(ngModel)]="noteHeader"
+                #inputElement
+              />
+            </div>
+            <div class="input-group">
+              <textarea
+                class="form-control"
+                placeholder="Opisz szczegółowy"
+                [(ngModel)]="noteDescription"
+              ></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+              (click)="noteDescription = ''; noteHeader = ''"
+            >
+              Zamknij
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-dismiss="modal"
+              (click)="addNote()"
+            >
+              Zapisz
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  @if(notes.length > 0) {
+  <ul>
+    @for(note of getNotesByCompany; track note.id){
+    <li>
+      <app-note [note]="note" (onDeleteNote)="deleteNote($event)" />
+    </li>
+    }
+  </ul>
+  } @else {
+  <small class="text-light mt-2">Brak dodanych notatek</small>
+  }
+</section>

@@ -1,0 +1,14 @@
+<div class="list-group">
+  <button
+    class="company_button list-group-item text-light"
+    [class.isActive]="isSelected"
+    (click)="selectCompany(company())"
+  >
+    <img
+      class="company_logo"
+      [src]="company().img"
+      [alt]="'Logo' + company().name"
+    />
+    <span style="text-align: left">{{ company().name }}</span>
+  </button>
+</div>

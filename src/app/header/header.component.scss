@@ -1,0 +1,26 @@
+.main_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(
+    0deg,
+    rgba(23, 14, 61, 1) 0%,
+    rgba(26, 28, 149, 1) 100%
+  );
+  border-radius: 0px 0px 10px 10px;
+
+  img {
+    width: 70px;
+    padding-top: 0.5em;
+  }
+
+  .main_header,
+  .description {
+    padding: 0.5em;
+  }
+
+  .description {
+    margin-bottom: 1em;
+  }
+}

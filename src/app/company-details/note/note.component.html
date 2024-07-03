@@ -1,0 +1,9 @@
+<article class="text-light">
+  <h4>{{ note.header }}</h4>
+  <time datetime="">{{ note.time | date : "dd.MM.yyyy hh:MM" }}</time>
+  <p>{{ note.description }}</p>
+
+  <div class="trash_btn">
+    <button class="text-light" (click)="removeNote(note)">Usuń notatkę</button>
+  </div>
+</article>

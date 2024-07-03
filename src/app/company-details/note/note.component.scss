@@ -1,0 +1,25 @@
+article {
+  margin-top: 1em;
+  padding: 1em;
+  background: rgb(126, 128, 239);
+
+  button {
+    background: rgb(126, 128, 239);
+    width: 135px;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 1em;
+
+    &:hover {
+      background: rgb(66, 68, 220);
+      transition: 0.25s;
+    }
+  }
+
+  .trash_btn {
+    display: flex;
+    justify-content: end;
+  }
+}
